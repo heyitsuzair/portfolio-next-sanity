@@ -2,234 +2,18 @@ import { createClient } from "next-sanity";
 import PortableText from "react-portable-text";
 import Head from "next/head";
 import Script from "next/script";
+import Link from "next/link";
+import imageUrlBuilder from "@sanity/image-url";
 
 export default function Home({ blogs }) {
+  const client = createClient({
+    projectId: "0x8kr4v5",
+    dataset: "production",
+    useCdn: false,
+  });
+  const builder = imageUrlBuilder(client);
   return (
     <>
-      <Head>
-        <meta charset="utf-8" />
-
-        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-
-        <meta
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-          name="viewport"
-        />
-
-        <title>Homepage | Atom Template</title>
-
-        <meta property="og:title" content="Homepage | Atom Template" />
-
-        <meta property="og:locale" content="en_US" />
-
-        <link rel="canonical" href="//" />
-
-        <meta property="og:url" content="//" />
-
-        <meta
-          name="description"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        />
-
-        <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
-
-        <meta name="theme-color" content="#5540af" />
-
-        <meta property="og:site_name" content="Atom Template" />
-
-        <meta property="og:image" content="//assets/img/social.jpg" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta name="twitter:site" content="@tailwindmade" />
-
-        <link
-          crossorigin="crossorigin"
-          href="https://fonts.gstatic.com"
-          rel="preconnect"
-        />
-
-        <link
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
-          rel="preload"
-        />
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-
-        <link
-          href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-          rel="stylesheet"
-        />
-
-        <link
-          crossorigin="anonymous"
-          href="/assets/styles/main.min.css"
-          media="screen"
-          rel="stylesheet"
-        />
-
-        <script
-          defer
-          src="https://unpkg.com/@alpine-collective/toolkit@1.0.0/dist/cdn.min.js"
-        ></script>
-
-        <script
-          defer
-          src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-        ></script>
-        <Script />
-      </Head>
-
-      <div
-        className="w-full z-50 top-0 py-3 sm:py-5  absolute
-  "
-      >
-        <div className="container flex items-center justify-between">
-          <div>
-            <a href="/">
-              <img
-                src="/assets/img/logo.svg"
-                className="w-24 lg:w-48"
-                alt="logo image"
-              />
-            </a>
-          </div>
-          <div className="hidden lg:block">
-            <ul className="flex items-center">
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  About
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  Services
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  Portfolio
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  Clients
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  Work
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  Statistics
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  Blog
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-
-              <li className="group pl-6">
-                <span className="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                  Contact
-                </span>
-
-                <span className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"></span>
-              </li>
-            </ul>
-          </div>
-          <div className="block lg:hidden">
-            <button>
-              <i className="bx bx-menu text-4xl text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden">
-        <div class="absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-8 shadow md:w-1/3">
-          <button class="absolute top-0 right-0 mt-4 mr-4">
-            <img src="/assets/img/icon-close.svg" class="h-10 w-auto" alt="" />
-          </button>
-
-          <ul class="mt-8 flex flex-col">
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                About
-              </span>
-            </li>
-
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                Services
-              </span>
-            </li>
-
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                Portfolio
-              </span>
-            </li>
-
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                Clients
-              </span>
-            </li>
-
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                Work
-              </span>
-            </li>
-
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                Statistics
-              </span>
-            </li>
-
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                Blog
-              </span>
-            </li>
-
-            <li class="py-2">
-              <span class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white">
-                Contact
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
       <div>
         <div
           class="relative bg-cover bg-center bg-no-repeat py-8"
@@ -241,14 +25,14 @@ export default function Home({ blogs }) {
             <div class="flex flex-col items-center justify-center lg:flex-row">
               <div class="rounded-full border-8 border-primary shadow-xl">
                 <img
-                  src="/assets/img/blog-author.jpg"
-                  class="h-48 rounded-full sm:h-56"
+                  src="/assets/img/me.jpg"
+                  class="h-48 rounded-full w-48 object-cover"
                   alt="author"
                 />
               </div>
               <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
                 <h1 class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl">
-                  Hello I'm Christy Smith!
+                  Hello I'm Muhammad Uzair!
                 </h1>
                 <div class="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start">
                   <div class="flex items-center justify-center pl-0 sm:justify-start md:pl-1">
@@ -260,19 +44,16 @@ export default function Home({ blogs }) {
                     </div>
                   </div>
                   <div class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0">
-                    <a href="/">
+                    <a href="//fb.com/uzair.354123">
                       <i class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"></i>
                     </a>
-                    <a href="/" class="pl-4">
+                    <a href="//twitter.com/uzair354123" class="pl-4">
                       <i class="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
                     </a>
-                    <a href="/" class="pl-4">
-                      <i class="bx bxl-dribbble text-2xl text-white hover:text-yellow"></i>
-                    </a>
-                    <a href="/" class="pl-4">
+                    <a href="//linkedin.com/in/uzair-dev" class="pl-4">
                       <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
                     </a>
-                    <a href="/" class="pl-4">
+                    <a href="//instagram.com/codewith_uzair" class="pl-4">
                       <i class="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
                     </a>
                   </div>
@@ -289,7 +70,7 @@ export default function Home({ blogs }) {
                 Who am I?
               </h2>
               <h4 class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
-                I'm Christy Smith, a Web Designer & Photographer
+                I'm Muhammad Uzair, a full stack developer
               </h4>
               <p class="pt-6 font-body leading-relaxed text-grey-20">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -310,19 +91,16 @@ export default function Home({ blogs }) {
                   </div>
                 </div>
                 <div class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0">
-                  <a href="/">
+                  <a href="//fb.com/uzair.354123">
                     <i class="bx bxl-facebook-square text-2xl text-primary hover:text-yellow"></i>
                   </a>
-                  <a href="/" class="pl-4">
+                  <a href="//twitter.com/uzair354123" class="pl-4">
                     <i class="bx bxl-twitter text-2xl text-primary hover:text-yellow"></i>
                   </a>
-                  <a href="/" class="pl-4">
-                    <i class="bx bxl-dribbble text-2xl text-primary hover:text-yellow"></i>
-                  </a>
-                  <a href="/" class="pl-4">
+                  <a href="//linkedin.com/in/uzair-dev" class="pl-4">
                     <i class="bx bxl-linkedin text-2xl text-primary hover:text-yellow"></i>
                   </a>
-                  <a href="/" class="pl-4">
+                  <a href="//instagram.com/codewith_uzair" class="pl-4">
                     <i class="bx bxl-instagram text-2xl text-primary hover:text-yellow"></i>
                   </a>
                 </div>
@@ -874,69 +652,38 @@ export default function Home({ blogs }) {
               Check out my latest posts!
             </h4>
             <div class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10">
-              <a href="/post" class="shadow">
-                <div
-                  style={{ backgroundImage: "url(/assets/img/post-01.png)" }}
-                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-                >
-                  <span class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"></span>
-                  <span class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base">
-                    Read More
-                  </span>
-                </div>
-                <div class="bg-white py-6 px-5 xl:py-8">
-                  <span class="block font-body text-lg font-semibold text-black">
-                    How to become a frontend developer
-                  </span>
-                  <span class="block pt-2 font-body text-grey-20">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </span>
-                </div>
-              </a>
-              <a href="/post" class="shadow">
-                <div
-                  style={{ backgroundImage: "url(/assets/img/post-02.png)" }}
-                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-                >
-                  <span class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"></span>
-                  <span class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base">
-                    Read More
-                  </span>
-                </div>
-                <div class="bg-white py-6 px-5 xl:py-8">
-                  <span class="block font-body text-lg font-semibold text-black">
-                    My personal productivity system
-                  </span>
-                  <span class="block pt-2 font-body text-grey-20">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </span>
-                </div>
-              </a>
-              <a href="/post" class="shadow">
-                <div
-                  style={{ backgroundImage: "url(/assets/img/post-03.png)" }}
-                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-                >
-                  <span class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"></span>
-                  <span class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base">
-                    Read More
-                  </span>
-                </div>
-                <div class="bg-white py-6 px-5 xl:py-8">
-                  <span class="block font-body text-lg font-semibold text-black">
-                    My year in review 2020
-                  </span>
-                  <span class="block pt-2 font-body text-grey-20">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </span>
-                </div>
-              </a>
+              {blogs.map((blog) => {
+                return (
+                  <Link
+                    key={blog.slug}
+                    href={"/blog/" + blog.slug.current}
+                    class="shadow"
+                  >
+                    <div
+                      style={{
+                        backgroundImage: `url(${
+                          builder.image(blog.blogImage) ||
+                          "/assets/img/post-01.png"
+                        })`,
+                      }}
+                      class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+                    >
+                      <span class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"></span>
+                      <span class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base">
+                        Read More
+                      </span>
+                    </div>
+                    <div class="bg-white py-6 px-5 xl:py-8">
+                      <span class="block font-body text-lg font-semibold text-black">
+                        {blog.title}
+                      </span>
+                      <span class="block pt-2 font-body text-grey-20">
+                        {blog.metadesc}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
